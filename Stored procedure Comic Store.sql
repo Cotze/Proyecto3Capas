@@ -134,30 +134,32 @@ GO
 
 --Insertar
 CREATE PROC Cliente_Insertar
-@Nombre varchar(),
-@ApPaterno varchar(),
-@RFC varchar(),
-@Telefono varchar()
+@Nombre varchar(50),
+@ApPaterno varchar(50),
+@ApMaterno varchar(50),
+@RFC varchar(13),
+@Telefono varchar(50)
 AS
 BEGIN
 	INSERT INTO Cliente
-	()
+	(Nombre, ApPaterno, ApMaterno, RFC, Telefono)
 	VALUES
-	()
+	(@Nombre, @ApPaterno, @ApMaterno, @RFC, @Telefono)
 END
 GO
 
 --Actualizar
 CREATE PROC Cliente_Actualizar
-@id int
-@Nombre varchar() = NULL,
-@ApPaterno varchar() = NULL,
-@RFC varchar() = NULL,
-@Telefono varchar() = NULL
+@id int,
+@Nombre varchar(50) = null,
+@ApPaterno varchar(50) = null,
+@ApMaterno varchar(50) = null,
+@RFC varchar(13) = null,
+@Telefono varchar(50) = null
 AS
 BEGIN
 	UPDATE Cliente
-	SET
+	SET Nombre = ISNULL(@Nombre, Nombre), ApPaterno = ISNULL(@ApPaterno, ApPaterno), ApMaterno = ISNULL(@ApMaterno, ApMaterno), RFC = ISNULL(@RFC, RFC), Telefono = ISNULL(@Telefono, Telefono)
 	WHERE id = @id
 END
 GO
@@ -200,9 +202,10 @@ CREATE PROC Baucher_Insertar
 AS
 BEGIN
 	INSERT INTO Baucher
-	()
+	(Cliente_id, Vendedor_id, SubTotal, Total)
 	VALUES
-	()
+	(@Cliente_id, @Vendedor_id, @SubTotal, @Total)
+	SELECT id = SCOPE_IDENTITY()
 END
 GO
 
@@ -216,9 +219,8 @@ CREATE PROC Baucher_Actualizar
 AS
 BEGIN
 	UPDATE Baucher
-	SET
+	SET Cliente_id = ISNULL(@Cliente_id, Cliente_id), Vendedor_id =ISNULL(@Vendedor_id, Vendedor_id), SubTotal = ISNULL(@SubTotal, SubTotal), Total = ISNULL(@Total, Total)
 	WHERE id = @id
-	SELECT id SCOPE_IDENTITY()
 END
 GO
 
@@ -259,9 +261,10 @@ CREATE PROC DetalleTicket_Insertar
 AS
 BEGIN
 	INSERT INTO DetalleTicket
-	()
+	(Ticket_id, Tomos_id, Cantidad)
 	VALUES
-	()
+	(@Baucher_id, @Tomos_id, @Cantidad)
+	SELECT id = SCOPE_IDENTITY()
 END
 GO
 
@@ -274,9 +277,8 @@ CREATE PROC DetalleTicket_Actualizar
 AS
 BEGIN
 	UPDATE DetalleTicket
-	SET
+	SET Ticket_id = ISNULL(@Baucher_id, Ticket_id), Tomos_id = ISNULL(@Tomos_id, Tomos_id), Cantidad = ISNULL(@Cantidad, Cantidad)
 	WHERE @id = id
-	SELECT id SCOPE_IDENTITY()
 END
 GO
 
