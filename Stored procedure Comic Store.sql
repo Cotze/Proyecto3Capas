@@ -301,3 +301,36 @@ BEGIN
 	WHERE id = @id
 END
 GO
+
+--Query para obtener los datos de venta
+ALTER PROC StocTomos
+@Stock int
+AS
+BEGIN
+	IF(@Stock = 0)
+	BEGIN
+		SELECT C.Nombre, C.ApPaterno, C.ApMaterno, C.RFC, T.Titulo, T.Precio, T.Genero, T.Stock, B.SubTotal, B.Total
+		FROM Baucher B
+		INNER JOIN Tomos T ON T.id = T.id
+		INNER JOIN Cliente C ON C.id = C.id
+		WHERE T.Stock < 1
+	END
+	else
+	BEGIN
+		SELECT C.Nombre, C.ApPaterno, C.ApMaterno, C.RFC, T.Titulo, T.Precio, T.Genero, T.Stock, B.SubTotal, B.Total
+		FROM Baucher B
+		INNER JOIN Tomos T ON T.id = T.id
+		INNER JOIN Cliente C ON C.id = C.id
+		WHERE T.Stock > 0
+	END
+END
+GO
+
+--Buscar por nombres
+CREATE PROC buscaTitulo
+@Prefijo varchar(MAX)
+AS
+BEGIN
+	SELECT Titulo FROM Tomos 
+	WHERE Titulo LIKE '%' + @Prefijo + '%'
+END
