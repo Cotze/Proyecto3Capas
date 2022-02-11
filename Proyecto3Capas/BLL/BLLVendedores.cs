@@ -36,13 +36,12 @@ namespace Proyecto3Capas.BLL
         }
 
         //Eliminar
-        public static string DalVendedor(int paramIdVendedor)
+        public static string DelVendedor(int paramIdVendedor)
         {
             try
             {
-                
-                VendedorVO Vendedor = DALVendedores.GetVendedoresById(paramIdVendedor);
-                return paramIdVendedor.ToString();
+                DALVendedores.DelVendedor(paramIdVendedor);
+                return "Vendedor eliminado";
             }
             catch (Exception ex)
             {

@@ -16,21 +16,21 @@
                 <div class="form-btn-group">
                     <label for="<%=txtNombre.ClientID %>">Nombre</label>
                     <asp:TextBox ID="txtNombre" placeholder="Nombre completo" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtNombre" CssClass="text-danger" runat="server" ErrorMessage="Nombre de chofer requerido"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtNombre" CssClass="text-danger" runat="server" ErrorMessage="Nombre del vendedor requerido"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=txtApPaterno.ClientID %>">Apellido paterno</label>
                     <asp:TextBox ID="txtApPaterno" placeholder="Apellido paterno" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtApPaterno" CssClass="text-danger" runat="server" ErrorMessage="Apellido paterno de chofer requerido"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtApPaterno" CssClass="text-danger" runat="server" ErrorMessage="Apellido paterno de vendedor requerido"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=txtApMaterno.ClientID %>">Apellido materno</label>
                     <asp:TextBox ID="txtApMaterno" placeholder="Apellido materno" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtApMaterno" CssClass="text-danger" runat="server" ErrorMessage="Apellido materno de chofer requerido"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtApMaterno" CssClass="text-danger" runat="server" ErrorMessage="Apellido materno de vendedor requerido"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">

@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,8 +13,11 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="/Content/sweetalert.css" rel="stylesheet" />
+    <script src="/Scripts/sweetalert.min.js"></script>
 
 </head>
 <body>
@@ -68,10 +71,10 @@
                                     <a href="/Catalogos/Vendedores/AltaVendedores.aspx">Alta Vendedores</a>
                                 </li>
                                 <li>
-                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">Lista Tomos</a>
+                                    <a href="/Catalogos/Tomos/ListadoTomos.aspx">Lista Tomos</a>
                                 </li>
                                 <li>
-                                    <a href="/Catalogos/Camiones/AltaCamion.aspx">Alta Tomos</a>
+                                    <a href="/Catalogos/Tomos/AltaTomos.aspx">Alta Tomos</a>
                                 </li>
                                 <li>
                                     <a href="/Catalogos/Rutas/AltaRuta.aspx">Alta Clientes</a>

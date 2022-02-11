@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Proyecto3Capas</RootNamespace>
     <AssemblyName>Proyecto3Capas</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44369</IISExpressSSLPort>
@@ -53,9 +53,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -109,6 +109,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Catalogos\Tomos\AltaTomos.aspx" />
+    <Content Include="Catalogos\Tomos\ListadoTomos.aspx" />
     <Content Include="Catalogos\Vendedores\AltaVendedores.aspx" />
     <Content Include="Catalogos\Vendedores\ListadoVendedores.aspx" />
     <Content Include="Contact.aspx" />
@@ -179,7 +181,22 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\BLLTomos.cs" />
     <Compile Include="BLL\BLLVendedores.cs" />
+    <Compile Include="Catalogos\Tomos\AltaTomos.aspx.cs">
+      <DependentUpon>AltaTomos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Tomos\AltaTomos.aspx.designer.cs">
+      <DependentUpon>AltaTomos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Tomos\ListadoTomos.aspx.cs">
+      <DependentUpon>ListadoTomos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Tomos\ListadoTomos.aspx.designer.cs">
+      <DependentUpon>ListadoTomos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\Vendedores\AltaVendedores.aspx.cs">
       <DependentUpon>AltaVendedores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +218,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DALTomos.cs" />
     <Compile Include="DAL\DALVendedores.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -236,6 +254,7 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="VO\TomosVO.cs" />
     <Compile Include="VO\VendedorVO.cs" />
   </ItemGroup>
   <ItemGroup>

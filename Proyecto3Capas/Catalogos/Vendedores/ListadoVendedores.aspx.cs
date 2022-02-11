@@ -39,15 +39,28 @@ namespace Proyecto3Capas.Catalogos.Vendedores
         protected void GVVendedores_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string IdVendedor = GVVendedores.DataKeys[e.RowIndex].Values["IdVendedor"].ToString();
-            string Resultado = BLLVendedores.DalVendedor(int.Parse(IdVendedor));
-            if (Resultado == "1")
+            try
             {
-                UtilControls.SweetBox("Chofer Eliminado con éxito", "", "success", this.Page, this.GetType());
+                string Resultado = BLLVendedores.DelVendedor(int.Parse(IdVendedor));
+                string Mensaje = "";
+                string Clase = "";
+
+                if (Resultado == "Vendedor eliminado")
+                {
+                    Mensaje = "Ok!";
+                    Clase = "success";
+                }
+                else
+                {
+                    Mensaje = "Atencion!";
+                    Clase = "warning";
+                }
                 RefrescarGrid();
-            }
-            else if (Resultado == "0")
+                UtilControls.SweetBox(Mensaje, Resultado, Clase, this.Page, this.GetType());
+
+            }catch(Exception ex)
             {
-                UtilControls.SweetBox("Chofer no pudo ser eliminado", "Los choferes NO DISPONIBLES no pueden ser eliminados", "error", this.Page, this.GetType());
+                UtilControls.SweetBox("ERROR!", ex.Message, "danger", this.Page, this.GetType());
             }
         }
     }

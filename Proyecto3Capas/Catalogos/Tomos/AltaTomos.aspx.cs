@@ -8,18 +8,35 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Proyecto3Capas.Catalogos.Vendedores
+namespace Proyecto3Capas.Catalogos.Tomos
 {
-    public partial class AltaVendedores : System.Web.UI.Page
+    public partial class AltaTomos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string titulo = txtTitulo.Text;
+                float precio = float.Parse(Precio.ToString());
+                int stock = int.Parse(Stock.ToString());
+                string genero = txtGenero.Text;
+                string urlfoto = urlFoto.InnerText;
+                BLLTomos.InsTomos(titulo, precio, stock, genero, urlfoto);
+                UtilControls.SweetBoxConfirm("Exito!", "Tomo agregado exitosamente", "success", "ListadoTomos.aspx", this.Page, this.GetType());
+            }
+            catch (Exception ex)
+            {
+                UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
+            }
+        }
+
         protected void btnSubeImagen_Click(object sender, EventArgs e)
         {
-            //Validar que el usuario haya sleccionado un archivo
             if (SubeImagen.Value != "")
             {
                 //asignar a una variable el nombre del archivo seleccionado
@@ -40,7 +57,7 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                     //Verifivamos que el directorio deonde vamos
                     //guardar el archivo exista
                     string pathDir =
-                        Server.MapPath("~/Imagenes/Vendedor/");
+                        Server.MapPath("~/Imagenes/Tomos/");
                     if (!Directory.Exists(pathDir))
                     {
                         //Crea el arbol completo
@@ -48,7 +65,7 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                     }
                     //Guardamos la imagen en el directorio correspondiente
                     SubeImagen.PostedFile.SaveAs(pathDir + FileName);
-                    string urlfoto = "/Imagenes/Vendedor/" + FileName;
+                    string urlfoto = "/Imagenes/Tomos/" + FileName;
                     urlFoto.InnerText = urlfoto;
                     imgFotoChofer.ImageUrl = urlfoto;
                     btnGuardar.Visible = true;
@@ -61,23 +78,6 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 UtilControls.SweetBox("Error!", "Debes subir un archivo", "error", this.Page, this.GetType());
             }
         }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string nombre = txtNombre.Text;
-                string apPaterno = txtApPaterno.Text;
-                string apMaterno = txtApMaterno.Text;;
-                string puesto = txtPuesto.Text;
-                string urlfoto = urlFoto.InnerText;
-                BLLVendedores.InsVendedores(nombre, apPaterno, apMaterno, puesto, urlfoto);
-                UtilControls.SweetBoxConfirm("Exito!", "Vendedor agregado exitosamente", "success", "ListadoVendedores.aspx", this.Page, this.GetType());
-            }
-            catch (Exception ex)
-            {
-                UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
-            }
-        }
     }
+    
 }

@@ -21,6 +21,7 @@ namespace Proyecto3Capas.VO
         public string ApMaterno { get => _ApMaterno; set => _ApMaterno = value; }
         public string Puesto { get => _Puesto; set => _Puesto = value; }
         public string UrlFoto { get => _UrlFoto; set => _UrlFoto = value; }
+        
 
         public VendedorVO() //Constructor
         {

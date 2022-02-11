@@ -65,7 +65,7 @@ namespace Proyecto3Capas.DAL
         {
             try
             {
-                DBConnection.ExecuteNonQuery("Choferes_Actualizar", "@id", paramIdVendedor, "@Nombre", paramNombre, "@ApPaterno", paramApPaterno, "@ApMaterno", paramApMaterno, "@Puesto", paramPuesto, "@UrlFoto", paramUrlFoto);
+                DBConnection.ExecuteNonQuery("Vendedor_Actualizar", "@id", paramIdVendedor, "@Nombre", paramNombre, "@ApPaterno", paramApPaterno, "@ApMaterno", paramApMaterno, "@Puesto", paramPuesto, "@UrlFoto", paramUrlFoto);
             }
             catch (Exception ex)
             {

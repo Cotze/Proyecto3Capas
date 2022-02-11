@@ -105,3 +105,4 @@ C:\Users\trnet-10\source\repos\Proyecto3Capas\Proyecto3Capas\obj\Debug\Proyecto3
 C:\Users\trnet-10\source\repos\Proyecto3Capas\Proyecto3Capas\obj\Debug\Proyecto3Capas.dll
 C:\Users\trnet-10\source\repos\Proyecto3Capas\Proyecto3Capas\obj\Debug\Proyecto3Capas.pdb
 C:\Users\trnet-10\source\repos\Proyecto3Capas\Proyecto3Capas\bin\AjaxControlToolkit.dll
+C:\Users\DIEGO\source\repos\Proyecto3Capas\Proyecto3Capas\bin\AjaxControlToolkit.dll
