@@ -77,7 +77,7 @@ CREATE PROC Vendedor_Insertar
 @ApPaterno varchar(50),
 @ApMaterno varchar(50),
 @Puesto varchar(50),
-@UrlFoto varchar(255)
+@UrlFoto varchar(255),
 AS
 BEGIN
 	INSERT INTO Vendedor
