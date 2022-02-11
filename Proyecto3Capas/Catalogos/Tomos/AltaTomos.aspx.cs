@@ -19,7 +19,7 @@ namespace Proyecto3Capas.Catalogos.Tomos
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 string titulo = txtTitulo.Text;
                 float precio = float.Parse(Precio.ToString());
@@ -32,12 +32,12 @@ namespace Proyecto3Capas.Catalogos.Tomos
             catch (Exception ex)
             {
                 UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
-            }
+            }*/
         }
 
         protected void btnSubeImagen_Click(object sender, EventArgs e)
         {
-            if (SubeImagen.Value != "")
+            /*if (SubeImagen.Value != "")
             {
                 //asignar a una variable el nombre del archivo seleccionado
                 string FileName =
@@ -76,7 +76,7 @@ namespace Proyecto3Capas.Catalogos.Tomos
                 //Enviar mensaje de que no se puede ser vacio
                 //mensaje de error
                 UtilControls.SweetBox("Error!", "Debes subir un archivo", "error", this.Page, this.GetType());
-            }
+            }*/
         }
     }
     

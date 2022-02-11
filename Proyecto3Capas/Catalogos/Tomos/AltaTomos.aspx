@@ -11,7 +11,7 @@
 
             </div>
         </div>
-        <<div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=txtTitulo.ClientID %>">Titulo del Tomo</label>
@@ -26,7 +26,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="Precio" CssClass="text-danger" runat="server" ErrorMessage="Apellido paterno de chofer requerido"></asp:RequiredFieldValidator>
 
                     <%--aca va la mascara de precio--%>
-                    <ajaxToolkit:MaskedEditExtender ID="MEEtxtPrecio" Mask="$ 999.99" ClearMaskOnLostFocus="false" runat="server" />
+                   <%-- <ajaxToolkit:MaskedEditExtender ID="MEEtxtPrecio" Mask="$ 999.99" ClearMaskOnLostFocus="false" runat="server" />--%>
 
                 </div>
             </div>
