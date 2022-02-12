@@ -16,28 +16,9 @@ namespace Proyecto3Capas.Catalogos.Tomos
         {
 
         }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            /*try
-            {
-                string titulo = txtTitulo.Text;
-                float precio = float.Parse(Precio.ToString());
-                int stock = int.Parse(Stock.ToString());
-                string genero = txtGenero.Text;
-                string urlfoto = urlFoto.InnerText;
-                BLLTomos.InsTomos(titulo, precio, stock, genero, urlfoto);
-                UtilControls.SweetBoxConfirm("Exito!", "Tomo agregado exitosamente", "success", "ListadoTomos.aspx", this.Page, this.GetType());
-            }
-            catch (Exception ex)
-            {
-                UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
-            }*/
-        }
-
         protected void btnSubeImagen_Click(object sender, EventArgs e)
         {
-            /*if (SubeImagen.Value != "")
+            if (SubeImagen.Value != "")
             {
                 //asignar a una variable el nombre del archivo seleccionado
                 string FileName =
@@ -76,7 +57,25 @@ namespace Proyecto3Capas.Catalogos.Tomos
                 //Enviar mensaje de que no se puede ser vacio
                 //mensaje de error
                 UtilControls.SweetBox("Error!", "Debes subir un archivo", "error", this.Page, this.GetType());
-            }*/
+            }
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string titulo = txtTitulo.Text;
+                float precio = float.Parse(txtPrecio.ToString());
+                int stock = int.Parse(txtStock.ToString());
+                string genero = txtGenero.Text;
+                string urlfoto = urlFoto.InnerText;
+                BLLTomos.InsTomos(titulo, precio, stock, genero, urlfoto);
+                UtilControls.SweetBoxConfirm("Exito!", "Tomo agregado exitosamente", "success", "ListadoTomos.aspx", this.Page, this.GetType());
+            }
+            catch (Exception ex)
+            {
+                UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
+            }
         }
     }
     

@@ -29,7 +29,7 @@ namespace Proyecto3Capas.BLL
         }
 
         //Actualizar
-        public static void UpdTomos(int paramIdTomo, string paramTitulo, float paramPrecio, int paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
+        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
         {
             DALTomos.UpdTomos(paramIdTomo, paramTitulo, paramPrecio, paramStock, paramGenero, paramDisponibilidad, paramUrlFoto);
         }

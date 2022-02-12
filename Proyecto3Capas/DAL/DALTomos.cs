@@ -61,7 +61,7 @@ namespace Proyecto3Capas.DAL
         }
 
         //Actualizar
-        public static void UpdTomos(int paramIdTomo, string paramTitulo, float paramPrecio, int paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
+        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int? paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
         {
             try
             {

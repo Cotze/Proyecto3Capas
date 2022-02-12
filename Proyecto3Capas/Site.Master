@@ -77,7 +77,7 @@
                                     <a href="/Catalogos/Tomos/AltaTomos.aspx">Alta Tomos</a>
                                 </li>
                                 <li>
-                                    <a href="/Catalogos/Rutas/AltaRuta.aspx">Alta Clientes</a>
+                                    <a href="/Catalogos/Clientes/ListadoCliente.aspx">Listado Clientes</a>
                                 </li>
                             </ul>
                         </li>

@@ -21,20 +21,20 @@
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
-                    <label for="<%=Precio.ClientID %>">Precio de Tomo</label>
-                    <asp:TextBox ID="Precio" placeholder="Precio de Tomo" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="Precio" CssClass="text-danger" runat="server" ErrorMessage="Apellido paterno de chofer requerido"></asp:RequiredFieldValidator>
+                    <label for="<%=txtPrecio.ClientID %>">Precio de Tomo</label>
+                    <asp:TextBox ID="txtPrecio" placeholder="Precio de Tomo" CssClass="form-control" runat="server">$</asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtPrecio" CssClass="text-danger" runat="server" ErrorMessage="Precio de tomo requerido"></asp:RequiredFieldValidator>
 
                     <%--aca va la mascara de precio--%>
-                   <%-- <ajaxToolkit:MaskedEditExtender ID="MEEtxtPrecio" Mask="$ 999.99" ClearMaskOnLostFocus="false" runat="server" />--%>
+                   <ajaxToolkit:MaskedEditExtender ID="MskNumber" Mask="99.99" TargetControlID="txtPrecio" ClearMaskOnLostFocus="false" runat="server"/>
 
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
-                    <label for="<%=Stock.ClientID %>">Stock</label>
-                    <asp:TextBox ID="Stock" placeholder="Cuantos tomos" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="Stock" CssClass="text-danger" runat="server" ErrorMessage="Cantidad de stock requerida"></asp:RequiredFieldValidator>
+                    <label for="<%=txtStock.ClientID %>">Stock</label>
+                    <asp:TextBox ID="txtStock" placeholder="Cuantos tomos" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtStock" CssClass="text-danger" runat="server" ErrorMessage="Cantidad de stock requerida"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">
