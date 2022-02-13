@@ -5,7 +5,9 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1" style="scroll-margin-left: 40px;">
                 <h3>LISTADO DE VENDEDORES</h3>
-                <asp:GridView ID="GVVendedores" CssClass="table tabble-table-bordered table-stripoed table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVVendedores_RowDeleting" DataKeyNames="IdVendedor">
+                
+                <asp:GridView ID="GVVendedores" CssClass="table tabble-table-bordered table-stripoed table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVVendedores_RowDeleting" DataKeyNames="IdVendedor" OnRowEditing="GVVendedores_RowEditing" OnRowUpdating="GVVendedores_RowUpdating" OnRowCancelingEdit="GVVendedores_RowCancelingEdit" OnRowCommand="GVVendedores_RowCommand">
+
                     <Columns>
                         <asp:ButtonField Text="Seleccionar" CommandName="select" ButtonType="Button" ControlStyle-CssClass="btn btn-success btn-xs" />
                         <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ControlStyle-CssClass="btn btn-danger btn-xs" />

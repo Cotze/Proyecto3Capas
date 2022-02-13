@@ -18,6 +18,8 @@ namespace Proyecto3Capas.Catalogos.Clientes
             {
                 Response.Redirect("ListadoCliente.aspx");
             }
+
+
             int IdCliente = int.Parse(Request.QueryString["Id"]);
             ClienteVO cliente = BLLCliente.GetClienteByID(IdCliente);
             if (cliente.IdCliente == 0)
@@ -29,6 +31,7 @@ namespace Proyecto3Capas.Catalogos.Clientes
             TxtApMaterno.Text = cliente.ApPaterno;
             txtRFC.Text = cliente.RFC;
             txtTelefono.Text = cliente.Telefono;
+
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -36,12 +39,11 @@ namespace Proyecto3Capas.Catalogos.Clientes
             try
             {
                 //RECUPERAR INFORMACION DE LA CAJA DE TEXTO
+                int id = int.Parse(Request.QueryString["Id"]);
                 string Telefono = txtTelefono.Text;
                 string RFC = txtRFC.Text;
-                int id = int.Parse(Request.QueryString["Id"].ToString());
-                
+
                 BLLCliente.UpdCliente(id, null, null, null, RFC, Telefono);
-                
                 UtilControls.SweetBoxConfirm("Exito", "Cliente actualizado correctamente", "success", "ListadoCliente.aspx", this.Page, this.GetType());
             }
             catch (Exception ex)

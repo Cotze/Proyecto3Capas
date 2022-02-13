@@ -63,5 +63,48 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 UtilControls.SweetBox("ERROR!", ex.Message, "danger", this.Page, this.GetType());
             }
         }
+
+        protected void GVVendedores_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GVVendedores.EditIndex = e.NewEditIndex;
+            RefrescarGrid();
+        }
+
+        protected void GVVendedores_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            try
+            {
+                string IdVendedor = GVVendedores.DataKeys[e.RowIndex].Values["IdVendedor"].ToString();
+                string Nombre = e.NewValues["Nombre"].ToString();
+                string ApPaterno = e.NewValues["ApPaterno"].ToString();
+                string ApMaterno = e.NewValues["ApMaterno"].ToString();
+
+                BLLVendedores.UpdVendedor(int.Parse(IdVendedor), Nombre, ApPaterno, ApMaterno, null, null);
+                GVVendedores.EditIndex = -1;
+                RefrescarGrid();
+                UtilControls.SweetBox("Registro actualizado", "", "success", this.Page, this.GetType());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void GVVendedores_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GVVendedores.EditIndex = -1;
+            RefrescarGrid();
+        }
+
+        protected void GVVendedores_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "select")
+            {
+                int index = int.Parse(e.CommandArgument.ToString());
+                string idVendedor = GVVendedores.DataKeys[index].Values["IdVendedor"].ToString();
+                Response.Redirect("EdicionVendedor.aspx?IdVendedor=" + idVendedor);
+            }
+        }
     }
 }

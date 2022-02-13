@@ -1,5 +1,6 @@
 ﻿using Proyecto3Capas.BLL;
 using Proyecto3Capas.Util;
+using Proyecto3Capas.VO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,54 +9,64 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Proyecto3Capas.Catalogos.Tomos
+namespace Proyecto3Capas.Catalogos.Vendedores
 {
-    public partial class AltaTomos : System.Web.UI.Page
+    public partial class EdicionVendedor : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Response.Redirect("ListadoVendedores.aspx");
+            }
 
+            int IdVendedor = int.Parse(Request.QueryString["IdVendedor"]);
+            VendedorVO vendedor = BLLVendedores.GetVendedoresByID(IdVendedor);
+            if (vendedor.IdVendedor == 0)
+            {
+                UtilControls.SweetBoxConfirm("Error", "El empleado no se encuentra en la base de datos", "ListadoVendedores.aspx", "warning", this.Page, this.GetType());
+            }
+            imgFotoVendedor.ImageUrl = vendedor.UrlFoto;
         }
+
         protected void btnSubeImagen_Click(object sender, EventArgs e)
         {
             if (SubeImagen.Value != "")
             {
-                //asignar a una variable el nombre del archivo seleccionado
+
                 string FileName =
                     Path.GetFileName(SubeImagen.PostedFile.FileName);
 
-                //validar que el archivo sea .jpg o .png
+
                 string FileExt =
                     Path.GetExtension(FileName).ToLower();
 
                 if ((FileExt != ".jpg") && (FileExt != ".png"))
                 {
-                    //mensaje de error
+
                     UtilControls.SweetBox("Error!", "Seleccione un archivo valido de imagen", "error", this.Page, this.GetType());
                 }
                 else
                 {
-                    //Verifivamos que el directorio deonde vamos
-                    //guardar el archivo exista
+
                     string pathDir =
-                        Server.MapPath("~/Imagenes/Tomos/");
+                        Server.MapPath("~/Imagenes/Vendedores/");
                     if (!Directory.Exists(pathDir))
                     {
-                        //Crea el arbol completo
+
                         Directory.CreateDirectory(pathDir);
                     }
-                    //Guardamos la imagen en el directorio correspondiente
+
                     SubeImagen.PostedFile.SaveAs(pathDir + FileName);
-                    string urlfoto = "/Imagenes/Tomos/" + FileName;
+                    string urlfoto = "/Imagenes/Vendedores/" + FileName;
                     urlFoto.InnerText = urlfoto;
-                    imgFotoChofer.ImageUrl = urlfoto;
+                    imgFotoVendedor.ImageUrl = urlfoto;
                     btnGuardar.Visible = true;
                 }
             }
             else
             {
-                //Enviar mensaje de que no se puede ser vacio
-                //mensaje de error
+
                 UtilControls.SweetBox("Error!", "Debes subir un archivo", "error", this.Page, this.GetType());
             }
         }
@@ -64,19 +75,19 @@ namespace Proyecto3Capas.Catalogos.Tomos
         {
             try
             {
-                string titulo = txtTitulo.Text;
-                float precio =  float.Parse(txtPrecio.Text);
-                int stock = int.Parse(txtStock.Text);
-                string genero = txtGenero.Text;
-                string urlfoto = urlFoto.InnerText;
-                BLLTomos.InsTomos(titulo, precio, stock, genero, urlfoto);
-                UtilControls.SweetBoxConfirm("Exito!", "Tomo agregado exitosamente", "success", "ListadoTomos.aspx", this.Page, this.GetType());
+                int id = int.Parse(Request.QueryString["Id"].ToString());
+                string UrlFoto = imgFotoVendedor.ImageUrl;
+
+                BLLVendedores.UpdVendedor(id, null, null, null, null, UrlFoto);
+
+                UtilControls.SweetBoxConfirm("Exito", "Empleado actualizado correctamente", "success", "ListadoVendedores.aspx", this.Page, this.GetType());
+
             }
             catch (Exception ex)
             {
-                UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
+
+                UtilControls.SweetBox("Error", ex.Message, "error", this.Page, this.GetType());
             }
         }
     }
-    
 }

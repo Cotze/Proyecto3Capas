@@ -59,25 +59,32 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
-                        <li class="dropdown"><a href="#" class="drpdwn-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogos</a>
-                            <ul class="dropdown-menu">
+                        <li class="dropdown"><a href="#" class="drpdwn-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados</a>
+                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/Catalogos/Vendedores/ListadoVendedores.aspx">Lista Venderdores</a>
                                 </li>
                                 <li>
                                     <a href="/Catalogos/Vendedores/AltaVendedores.aspx">Alta Vendedores</a>
                                 </li>
+
+                             </ul>
+                        <li class="dropdown"><a href="#" class="drpdwn-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/Catalogos/Clientes/ListadoCliente.aspx">Listado Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="/Catalogos/Clientes/AltaCliente.aspx">Alta Clientes</a>
+                                </li>
+                            </ul>
+                        <li class="dropdown"><a href="#" class="drpdwn-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tomos</a>
+                            <ul class="dropdown-menu">
                                 <li>
                                     <a href="/Catalogos/Tomos/ListadoTomos.aspx">Lista Tomos</a>
                                 </li>
                                 <li>
                                     <a href="/Catalogos/Tomos/AltaTomos.aspx">Alta Tomos</a>
-                                </li>
-                                <li>
-                                    <a href="/Catalogos/Clientes/ListadoCliente.aspx">Listado Clientes</a>
                                 </li>
                             </ul>
                         </li>
