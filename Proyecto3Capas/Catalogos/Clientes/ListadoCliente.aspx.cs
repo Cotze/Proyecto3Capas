@@ -51,16 +51,31 @@ namespace Proyecto3Capas.Catalogos.Clientes
         protected void GVClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string IdCliente = GVClientes.DataKeys[e.RowIndex].Values["IdCliente"].ToString();
-            string Resultado = BLLCliente.DelCliente(int.Parse(IdCliente));
-            if (Resultado == "1")
+            try
             {
-                UtilControls.SweetBox("Cliente eliminado con éxito", "", "success", this.Page, this.GetType());
+                string Resultado = BLLCliente.DelCliente(int.Parse(IdCliente));
+                string Mensaje = "";
+                string Clase = "";
+
+                if (Resultado == "Cliente eliminado")
+                {
+                    Mensaje = "Ok!";
+                    Clase = "success";
+                }
+                else
+                {
+                    Mensaje = "Atencion!";
+                    Clase = "warning";
+                }
                 RefrescarGrid();
+                UtilControls.SweetBox(Mensaje, Resultado, Clase, this.Page, this.GetType());
             }
-            else if (Resultado == "0")
+            catch (Exception ex)
             {
-                UtilControls.SweetBox("El cliente no pudo ser eliminado", "", "error", this.Page, this.GetType());
+
+                UtilControls.SweetBox("ERROR!", ex.Message, "danger", this.Page, this.GetType());
             }
+            
         }
 
         protected void GVClientes_RowEditing(object sender, GridViewEditEventArgs e)

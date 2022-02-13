@@ -18,8 +18,16 @@
                         <asp:BoundField HeaderText="Nombre" ItemStyle-Width="150px" DataField="Nombre" />
                         <asp:BoundField HeaderText="ApPaterno" ItemStyle-Width="150px" DataField="ApPaterno" />
                         <asp:BoundField HeaderText="ApMaterno" ItemStyle-Width="150px" DataField="ApMaterno" />
-                        <asp:BoundField HeaderText="Puesto" ItemStyle-Width="80px" DataField="Puesto" ReadOnly="true" />
-
+                        <%--<asp:BoundField HeaderText="Puesto" ItemStyle-Width="80px" DataField="Puesto" ReadOnly="true" />--%>
+                        <asp:TemplateField HeaderText="Tipo empleado">
+                            <ControlStyle Width="150px"/>
+                            <ItemTemplate>
+                                <asp:Label ID="lblTipoEmpleado" Text='<%#Eval("Puesto") %>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:DropDownList ID="DDLTipoEmpleado" CssClass="form-control" runat="server"></asp:DropDownList>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
 
                     </Columns>
                 </asp:GridView>

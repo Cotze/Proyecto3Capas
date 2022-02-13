@@ -35,8 +35,8 @@
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
-                    <label for="<%=txtPuesto.ClientID %>">Apellido materno</label>
-                    <asp:TextBox ID="txtPuesto" placeholder="Apellido materno" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
+                    <label for="<%=txtPuesto.ClientID %>">Puesto del empleado</label>
+                    <asp:TextBox ID="txtPuesto" placeholder="Puesto del empleado" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPuesto" CssClass="text-danger" runat="server" ErrorMessage="Puesto del vendedor es requerido"></asp:RequiredFieldValidator>
                 </div>
             </div>

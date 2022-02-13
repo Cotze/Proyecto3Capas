@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Proyecto3Capas
 {
-    public class EnumeradoresPuestos
+    public class enumeradores
     {
-        public enum Puesto
+        public enum Tipo
         {
             Vendedor,
             Gerente,

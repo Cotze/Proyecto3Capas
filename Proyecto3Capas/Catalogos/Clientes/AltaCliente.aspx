@@ -10,21 +10,21 @@
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=txtNombre.ClientID %>">Nombre cliente</label>
-                    <asp:TextBox ID="txtNombre" placeholder="Nombre del cliente" CssClass="form-control" runat="server" MaxLength="150" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtNombre" placeholder="Nombre del cliente" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtNombre" CssClass="text-danger" runat="server"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=TxtApPaterno.ClientID %>">Apellido paterno</label>
-                    <asp:TextBox ID="TxtApPaterno" placeholder="Titulo del Tomo" CssClass="form-control" runat="server" MaxLength="150" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="TxtApPaterno" placeholder="Apellido paterno" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TxtApPaterno" CssClass="text-danger" runat="server" Enabled="true"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=TxtApMaterno.ClientID %>">Apellido materno</label>
-                    <asp:TextBox ID="TxtApMaterno" placeholder="Titulo del Tomo" CssClass="form-control" runat="server" MaxLength="150" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="TxtApMaterno" placeholder="Apellido materno" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="TxtApMaterno" CssClass="text-danger" runat="server" Enabled="true"></asp:RequiredFieldValidator>
                 </div>
             </div>

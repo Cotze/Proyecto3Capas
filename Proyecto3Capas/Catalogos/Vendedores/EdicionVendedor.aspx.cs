@@ -17,16 +17,29 @@ namespace Proyecto3Capas.Catalogos.Vendedores
         {
             if (!IsPostBack)
             {
-                Response.Redirect("ListadoVendedores.aspx");
+                if (Request.QueryString["IdVendedor"] == null)
+                {
+                    Response.Redirect("ListadoVendedores.aspx");
+                }
+                else
+                {
+                    int IdVendedor = int.Parse(Request.QueryString["IdVendedor"]);
+                    VendedorVO vendedor = BLLVendedores.GetVendedoresByID(IdVendedor);
+                    if (vendedor.IdVendedor == 0)
+                    {
+                        imgFotoVendedor.ImageUrl = vendedor.UrlFoto;
+                    }
+                    else
+                    {
+                        Response.Redirect("ListadoVendedores.aspx");
+                    }
+                    
+                }
             }
 
-            int IdVendedor = int.Parse(Request.QueryString["IdVendedor"]);
-            VendedorVO vendedor = BLLVendedores.GetVendedoresByID(IdVendedor);
-            if (vendedor.IdVendedor == 0)
-            {
-                UtilControls.SweetBoxConfirm("Error", "El empleado no se encuentra en la base de datos", "ListadoVendedores.aspx", "warning", this.Page, this.GetType());
-            }
-            imgFotoVendedor.ImageUrl = vendedor.UrlFoto;
+            
+
+           
         }
 
         protected void btnSubeImagen_Click(object sender, EventArgs e)
