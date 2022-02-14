@@ -23,7 +23,7 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 catch (Exception ex)
                 {
                     //Poner un mensaje
-                    throw;
+                    throw ex;
                 }
             }
         }

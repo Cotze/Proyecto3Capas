@@ -25,7 +25,7 @@ namespace Proyecto3Capas.BLL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -45,7 +45,7 @@ namespace Proyecto3Capas.BLL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
 
         }

@@ -16,5 +16,16 @@ namespace Proyecto3Capas
             Jefe,
             Publicista
         }
+
+        public enum Genero
+        {
+            SHÔJO,
+            SEINEN,
+            JOSEI,
+            KODOMO,
+            YAOI,
+            YURI,
+            HENTAI
+        }
     }
 }

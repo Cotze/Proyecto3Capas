@@ -71,6 +71,8 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 string apMaterno = txtApMaterno.Text;;
                 string puesto = txtPuesto.Text;
                 string urlfoto = urlFoto.InnerText;
+
+
                 BLLVendedores.InsVendedores(nombre, apPaterno, apMaterno, puesto, urlfoto);
                 UtilControls.SweetBoxConfirm("Exito!", "Vendedor agregado exitosamente", "success", "ListadoVendedores.aspx", this.Page, this.GetType());
             }

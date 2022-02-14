@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1" style="scroll-margin-left: 40px; top: 0px; left: 0px;">
                 <h3>LISTADO DE TOMOS</h3>
-                <asp:GridView ID="GVTomos" CssClass="table tabble-table-bordered table-stripoed table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVTomos_RowDeleting" DataKeyNames="IdTomo">
+                <asp:GridView ID="GVTomos" CssClass="table tabble-table-bordered table-stripoed table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVTomos_RowDeleting" DataKeyNames="IdTomo" OnRowEditing="GVTomos_RowEditing" OnRowCancelingEdit="GVTomos_RowCancelingEdit" OnRowUpdating="GVTomos_RowUpdating">
                     <Columns>
                         <asp:ButtonField Text="Seleccionar" CommandName="select" ButtonType="Button" ControlStyle-CssClass="btn btn-success btn-xs" />
                         <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ControlStyle-CssClass="btn btn-danger btn-xs" />
@@ -15,8 +15,15 @@
                         <asp:BoundField HeaderText="Titulo" ItemStyle-Width="150px" DataField="Titulo" />
                         <asp:BoundField HeaderText="Precio" ItemStyle-Width="150px" DataField="Precio" />
                         <asp:BoundField HeaderText="Stock" ItemStyle-Width="150px" DataField="Stock" />
-                        <asp:BoundField HeaderText="Genero" ItemStyle-Width="80px" DataField="Genero" ReadOnly="true" />
-
+                        <asp:TemplateField HeaderText="Tipo manga">
+                            <ControlStyle Width="200px"/>
+                            <ItemTemplate>
+                                <asp:Label ID="lblTipoManga" Text='<%#Eval("Genero") %>' runat="server"></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:DropDownList ID="DDLTipoManga" CssClass="form-control" runat="server"></asp:DropDownList>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Disponible" ItemStyle-Width="50px">
                             <ItemTemplate>
                                 <div style="width: 100%">

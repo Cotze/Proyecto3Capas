@@ -23,7 +23,7 @@ namespace Proyecto3Capas.Catalogos.Clientes
                 catch (Exception ex)
                 {
                     //Poner un mensaje
-                    throw;
+                    throw ex;
                 }
 
             }
@@ -105,7 +105,7 @@ namespace Proyecto3Capas.Catalogos.Clientes
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 

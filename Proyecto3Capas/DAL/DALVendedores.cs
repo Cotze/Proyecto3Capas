@@ -42,7 +42,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -56,7 +56,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -69,7 +69,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -82,7 +82,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -106,7 +106,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

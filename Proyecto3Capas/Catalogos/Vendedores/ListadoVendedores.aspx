@@ -18,7 +18,6 @@
                         <asp:BoundField HeaderText="Nombre" ItemStyle-Width="150px" DataField="Nombre" />
                         <asp:BoundField HeaderText="ApPaterno" ItemStyle-Width="150px" DataField="ApPaterno" />
                         <asp:BoundField HeaderText="ApMaterno" ItemStyle-Width="150px" DataField="ApMaterno" />
-                        <%--<asp:BoundField HeaderText="Puesto" ItemStyle-Width="80px" DataField="Puesto" ReadOnly="true" />--%>
                         <asp:TemplateField HeaderText="Tipo empleado">
                             <ControlStyle Width="150px"/>
                             <ItemTemplate>

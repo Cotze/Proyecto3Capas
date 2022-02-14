@@ -42,7 +42,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -56,12 +56,12 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         //Actualizar
-        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int? paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
+        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -81,7 +81,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -104,7 +104,7 @@ namespace Proyecto3Capas.DAL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }
