@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Proyecto3Capas.enumeradores;
 
 namespace Proyecto3Capas.Catalogos.Vendedores
 {
@@ -14,7 +15,12 @@ namespace Proyecto3Capas.Catalogos.Vendedores
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                UtilControls.EnumToListBox(typeof(Tipo), DDLTipoPuesto, false);
+                DDLTipoPuesto.DataBind();
+                DDLTipoPuesto.Items.Insert(0, new ListItem("Selecciona un puesto", ""));
+            }
         }
 
         protected void btnSubeImagen_Click(object sender, EventArgs e)
@@ -69,11 +75,11 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 string nombre = txtNombre.Text;
                 string apPaterno = txtApPaterno.Text;
                 string apMaterno = txtApMaterno.Text;;
-                string puesto = txtPuesto.Text;
+                string TipoCamion = DDLTipoPuesto.SelectedValue;
                 string urlfoto = urlFoto.InnerText;
 
 
-                BLLVendedores.InsVendedores(nombre, apPaterno, apMaterno, puesto, urlfoto);
+                BLLVendedores.InsVendedores(nombre, apPaterno, apMaterno, TipoCamion, urlfoto);
                 UtilControls.SweetBoxConfirm("Exito!", "Vendedor agregado exitosamente", "success", "ListadoVendedores.aspx", this.Page, this.GetType());
             }
             catch (Exception ex)

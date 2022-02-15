@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Proyecto3Capas.enumeradores;
 
 namespace Proyecto3Capas.Catalogos.Tomos
 {
@@ -14,7 +15,12 @@ namespace Proyecto3Capas.Catalogos.Tomos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                UtilControls.EnumToListBox(typeof(Genero), DDLGenero, false);
+                DDLGenero.DataBind();
+                DDLGenero.Items.Insert(0, new ListItem("Selecciona un puesto", ""));
+            }
         }
         protected void btnSubeImagen_Click(object sender, EventArgs e)
         {
@@ -64,12 +70,13 @@ namespace Proyecto3Capas.Catalogos.Tomos
         {
             try
             {
-                string titulo = txtTitulo.Text;
-                float precio =  float.Parse(txtPrecio.Text);
-                int stock = int.Parse(txtStock.Text);
-                string genero = txtGenero.Text;
-                string urlfoto = urlFoto.InnerText;
-                BLLTomos.InsTomos(titulo, precio, stock, genero, urlfoto);
+                string Titulo = txtTitulo.Text;
+                float Precio =  float.Parse(txtPrecio.Text);
+                int Stock = int.Parse(txtStock.Text);
+                string Genero = DDLGenero.SelectedValue;
+                string UrlFoto = urlFoto.InnerText;
+
+                BLLTomos.InsTomos(Titulo, Precio, Stock, Genero, UrlFoto);
                 UtilControls.SweetBoxConfirm("Exito!", "Tomo agregado exitosamente", "success", "ListadoTomos.aspx", this.Page, this.GetType());
             }
             catch (Exception ex)

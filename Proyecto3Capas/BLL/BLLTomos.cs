@@ -39,11 +39,11 @@ namespace Proyecto3Capas.BLL
         {
             try
             {
-                DALVendedores.DelVendedor(paramIdTomo);
+                DALTomos.DelTomo(paramIdTomo);
                 return "Tomo eliminado";
             }
             catch (Exception ex)
-            {
+            {   
                 throw ex;
             }
 

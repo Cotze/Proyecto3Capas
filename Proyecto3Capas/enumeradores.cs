@@ -12,7 +12,6 @@ namespace Proyecto3Capas
         {
             Vendedor,
             Gerente,
-            [Description("Doble de tienda")]
             Jefe,
             Publicista
         }

@@ -87,13 +87,13 @@ namespace Proyecto3Capas.Catalogos.Tomos
         protected global::AjaxControlToolkit.MaskedEditExtender MaskeStock;
 
         /// <summary>
-        /// Control txtGenero.
+        /// Control DDLGenero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGenero;
+        protected global::System.Web.UI.WebControls.DropDownList DDLGenero;
 
         /// <summary>
         /// Control RequiredFieldValidator4.

@@ -40,13 +40,9 @@
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
-                    <label for="<%=txtGenero.ClientID %>">Genero</label>
-                    <asp:TextBox ID="txtGenero" CssClass="form-control" runat="server"></asp:TextBox>
-                    <div class="col-md-12" style="margin-bottom: 30px;">
-                        <div style="position: absolute; top: 0px; left: 0;">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtGenero" CssClass="text-danger" runat="server" ErrorMessage="El genero del tomo es requerido"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
+                    <label for="<%=DDLGenero %>">Genero</label>
+                    <asp:DropDownList ID="DDLGenero" CssClass="form-control" runat="server"></asp:DropDownList>
+                     <asp:RequiredFieldValidator ControlToValidate="DDLGenero" ID="RequiredFieldValidator4" runat="server" CssClass="text-danger" ErrorMessage="Selecciona un tipo de manga"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="col-md-12">

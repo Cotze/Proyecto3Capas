@@ -35,9 +35,9 @@
             </div>
             <div class="col-md-12">
                 <div class="form-btn-group">
-                    <label for="<%=txtPuesto.ClientID %>">Puesto del empleado</label>
-                    <asp:TextBox ID="txtPuesto" placeholder="Puesto del empleado" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtPuesto" CssClass="text-danger" runat="server" ErrorMessage="Puesto del vendedor es requerido"></asp:RequiredFieldValidator>
+                    <label for="<%=DDLTipoPuesto %>">Puesto del empleado</label>
+                    <asp:DropDownList ID="DDLTipoPuesto" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ControlToValidate="DDLTipoPuesto" ID="RequiredFieldValidator4" runat="server" CssClass="text-danger" ErrorMessage="Selecciona Puesto"></asp:RequiredFieldValidator>
                 </div>
             </div>
             

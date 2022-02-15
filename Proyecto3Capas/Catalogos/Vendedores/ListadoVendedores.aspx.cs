@@ -93,9 +93,8 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 string ApPaterno = e.NewValues["ApPaterno"].ToString();
                 string ApMaterno = e.NewValues["ApMaterno"].ToString();
                 string Empleado = TipoEmpleadoAux.SelectedValue;
-
-
                 BLLVendedores.UpdVendedor(int.Parse(IdVendedor), Nombre, ApPaterno, ApMaterno, Empleado, null);
+
                 GVVendedores.EditIndex = -1;
                 RefrescarGrid();
                 UtilControls.SweetBox("Registro actualizado", "", "success", this.Page, this.GetType());
