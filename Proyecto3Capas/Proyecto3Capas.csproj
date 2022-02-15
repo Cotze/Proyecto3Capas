@@ -298,6 +298,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
     <Compile Include="VO\ClienteVO.cs" />
+    <Compile Include="VO\TicketVO.cs" />
     <Compile Include="VO\TomosVO.cs" />
     <Compile Include="VO\VendedorVO.cs" />
   </ItemGroup>
