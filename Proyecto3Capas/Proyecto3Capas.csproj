@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Proyecto3Capas</RootNamespace>
     <AssemblyName>Proyecto3Capas</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44369</IISExpressSSLPort>
@@ -113,6 +113,7 @@
     <Content Include="Catalogos\Clientes\EdicionCliente.aspx" />
     <Content Include="Catalogos\Clientes\ListadoCliente.aspx" />
     <Content Include="Catalogos\Tomos\AltaTomos.aspx" />
+    <Content Include="Catalogos\Tomos\EdicionTomos.aspx" />
     <Content Include="Catalogos\Tomos\ListadoTomos.aspx" />
     <Content Include="Catalogos\Vendedores\AltaVendedores.aspx" />
     <Content Include="Catalogos\Vendedores\EdicionVendedor.aspx" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="Catalogos\Tomos\AltaTomos.aspx.designer.cs">
       <DependentUpon>AltaTomos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Tomos\EdicionTomos.aspx.cs">
+      <DependentUpon>EdicionTomos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Tomos\EdicionTomos.aspx.designer.cs">
+      <DependentUpon>EdicionTomos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Tomos\ListadoTomos.aspx.cs">
       <DependentUpon>ListadoTomos.aspx</DependentUpon>

@@ -16,7 +16,7 @@ namespace Proyecto3Capas.BLL
         }
 
         //Insertar
-        public static void InsTomos(string paramTitulo, float paramPrecio, int paramStock, string paramGenero, string paramUrlFoto)
+        public static void InsTomos(string paramTitulo, float paramPrecio, int? paramStock, string paramGenero, string paramUrlFoto)
         {
             try
             {
@@ -29,9 +29,9 @@ namespace Proyecto3Capas.BLL
         }
 
         //Actualizar
-        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
+        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int? paramStock, string paramGenero, string paramUrlFoto)
         {
-            DALTomos.UpdTomos(paramIdTomo, paramTitulo, paramPrecio, paramStock, paramGenero, paramDisponibilidad, paramUrlFoto);
+            DALTomos.UpdTomos(paramIdTomo, paramTitulo, paramPrecio, paramStock, paramGenero, paramUrlFoto);
         }
 
         //Eliminar
@@ -39,17 +39,8 @@ namespace Proyecto3Capas.BLL
         {
             try
             {
-                //Verificar la disponibilidad del chofer
-                TomosVO Tomo = DALTomos.GetTomosById(paramIdTomo);
-                if (Tomo.Disponibilidad)
-                {
-                    DALTomos.DelTomo(paramIdTomo);
-                    return "1";
-                }
-                else
-                {
-                    return "0";
-                }
+                DALVendedores.DelVendedor(paramIdTomo);
+                return "Tomo eliminado";
             }
             catch (Exception ex)
             {

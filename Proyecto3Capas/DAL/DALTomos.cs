@@ -47,7 +47,7 @@ namespace Proyecto3Capas.DAL
         }
 
         //insertar
-        public static void InsTomos(string paramTitulo, float paramPrecio, int paramStock, string paramGenero, string paramUrlFoto)
+        public static void InsTomos(string paramTitulo, float paramPrecio, int? paramStock, string paramGenero, string paramUrlFoto)
         {
             try
             {
@@ -61,11 +61,11 @@ namespace Proyecto3Capas.DAL
         }
 
         //Actualizar
-        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int paramStock, string paramGenero, bool? paramDisponibilidad, string paramUrlFoto)
+        public static void UpdTomos(int paramIdTomo, string paramTitulo, float? paramPrecio, int? paramStock, string paramGenero, string paramUrlFoto)
         {
             try
             {
-                DBConnection.ExecuteNonQuery("Tomos_Actualizar", "@id", paramIdTomo, "@Titulo", paramTitulo, "@Precio", paramPrecio, "@Stock", paramStock, "@Genero", paramGenero, "@Disponibilidad", paramDisponibilidad, "@UrlFoto", paramUrlFoto);
+                DBConnection.ExecuteNonQuery("Tomos_Actualizar", "@id", paramIdTomo, "@Titulo", paramTitulo, "@Precio", paramPrecio, "@Stock", paramStock, "@Genero", paramGenero, "@UrlFoto", paramUrlFoto);
             }
             catch (Exception ex)
             {
@@ -73,6 +73,7 @@ namespace Proyecto3Capas.DAL
             }
         }
 
+        //Eliminar
         public static void DelTomo(int paramIdTomos)
         {
             try
@@ -85,6 +86,7 @@ namespace Proyecto3Capas.DAL
             }
         }
 
+        //GetByID
         public static TomosVO GetTomosById(int paramIdTomos)
         {
             try

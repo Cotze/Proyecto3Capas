@@ -13,7 +13,6 @@ namespace Proyecto3Capas.VO
         private float _Precio;
         private int _Stock;
         private string _Genero;
-        private bool _Disponibilidad;
         private string _UrlFoto;
         
 
@@ -22,7 +21,6 @@ namespace Proyecto3Capas.VO
         public float Precio { get => _Precio; set => _Precio = value; }
         public int Stock { get => _Stock; set => _Stock = value; }
         public string Genero { get => _Genero; set => _Genero = value; }
-        public bool Disponibilidad { get => _Disponibilidad; set => _Disponibilidad = value; }
         public string UrlFoto { get => _UrlFoto; set => _UrlFoto = value; }
         
 
@@ -33,7 +31,6 @@ namespace Proyecto3Capas.VO
             Precio = 0;
             Stock = 0;
             Genero = "";
-            Disponibilidad = false;
             UrlFoto = "";
         }
 
@@ -44,7 +41,6 @@ namespace Proyecto3Capas.VO
             Precio = float.Parse(dr["Precio"].ToString());
             Stock = int.Parse(dr["Stock"].ToString());
             Genero = dr["Genero"].ToString();
-            Disponibilidad = bool.Parse(dr["Disponibilidad"].ToString());
             UrlFoto = dr["UrlFoto"].ToString();
             
         }

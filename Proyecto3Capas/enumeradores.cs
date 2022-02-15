@@ -25,7 +25,8 @@ namespace Proyecto3Capas
             KODOMO,
             YAOI,
             YURI,
-            HENTAI
+            HENTAI,
+            Shōnen
         }
     }
 }

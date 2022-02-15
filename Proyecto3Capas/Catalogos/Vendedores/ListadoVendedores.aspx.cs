@@ -115,11 +115,11 @@ namespace Proyecto3Capas.Catalogos.Vendedores
 
         protected void GVVendedores_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "select")
+            if (e.CommandName == "Select")
             {
-                int index = int.Parse(e.CommandArgument.ToString());
-                string idVendedor = GVVendedores.DataKeys[index].Values["IdVendedor"].ToString();
-                Response.Redirect("EdicionVendedor.aspx?Id=" + idVendedor);
+                int index = int.Parse(e.CommandArgument.ToString()); 
+                string IdCamion = GVVendedores.DataKeys[index].Values["IdVendedor"].ToString(); 
+                Response.Redirect("EdicionVendedor.aspx?Id=" + IdCamion);
             }
         }
     }

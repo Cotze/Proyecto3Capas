@@ -38,15 +38,30 @@ namespace Proyecto3Capas.Catalogos.Tomos
         protected void GVTomos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string IdTomo = GVTomos.DataKeys[e.RowIndex].Values["IdTomo"].ToString();
-            string Resultado = BLLTomos.DelTomos(int.Parse(IdTomo));
-            if (Resultado == "1")
+            
+            try
             {
-                UtilControls.SweetBox("Tomo eliminado con éxito", "", "success", this.Page, this.GetType());
+                string Resultado = BLLTomos.DelTomos(int.Parse(IdTomo));
+                string Mensaje = "";
+                string Clase = "";
+                if (Resultado == "Tomo eliminado")
+                {
+                    Mensaje = "Ok!";
+                    Clase = "success";
+                }
+                else
+                {
+                    Mensaje = "Atencion!";
+                    Clase = "warning";
+                }
                 RefrescarGrid();
+                UtilControls.SweetBox(Mensaje, Resultado, Clase, this.Page, this.GetType());
+                
             }
-            else if (Resultado == "0")
+            catch (Exception ex)
             {
-                UtilControls.SweetBox("El Tomo no pudo ser eliminado", "Los tomos NO DISPONIBLES no pueden ser eliminados", "error", this.Page, this.GetType());
+
+                UtilControls.SweetBox("ERROR!", ex.Message, "danger", this.Page, this.GetType());
             }
         }
 
@@ -59,35 +74,34 @@ namespace Proyecto3Capas.Catalogos.Tomos
             RefrescarGrid();
 
             DropDownList DDLTipoMangaAux = (DropDownList)GVTomos.Rows[e.NewEditIndex].FindControl("DDLTipoManga");
-
-            UtilControls.EnumToListBox(typeof(Tipo), DDLTipoMangaAux, false);
+            UtilControls.EnumToListBox(typeof(Genero), DDLTipoMangaAux, false);
 
             DDLTipoMangaAux.DataBind();
-
             DDLTipoMangaAux.SelectedValue = tipoM;
         }
 
         protected void GVTomos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            GVTomos.EditIndex = -1;
+            RefrescarGrid();
         }
 
         protected void GVTomos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            string IdTomos = GVTomos.DataKeys[e.RowIndex].Values["idTomo"].ToString();
-            string titulo = e.NewValues["Titulo"].ToString();            
-
+            string IdTomos = GVTomos.DataKeys[e.RowIndex].Values["IdTomo"].ToString();
             DropDownList TipoMangaAux = (DropDownList)GVTomos.Rows[e.RowIndex].FindControl("DDLTipoManga");
-            string genero = TipoMangaAux.SelectedValue;
 
-            bool? Disponibilidad = bool.Parse(e.NewValues["Disponibilidad"].ToString());
+
+            string titulo = e.NewValues["Titulo"].ToString();
+            string genero = TipoMangaAux.SelectedValue;
 
             try
             {
-                string resultado = BLLTomos.UpdTomos(int.Parse(IdTomos), titulo, null, null , genero, Disponibilidad, null);
+                BLLTomos.UpdTomos(int.Parse(IdTomos), titulo, null, null , genero, null);
                 GVTomos.EditIndex = -1;
                 RefrescarGrid();
-                UtilControls.SweetBox(resultado, "", "success", this.Page, this.GetType());
+                UtilControls.SweetBox("Ok!", "Tomo actaulizado", "success", this.Page, this.GetType());
+                
             }
             catch (Exception ex)
             {
@@ -95,6 +109,16 @@ namespace Proyecto3Capas.Catalogos.Tomos
                 throw ex;
             }
 
+        }
+
+        protected void GVTomos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "select")
+            {
+                int index = int.Parse(e.CommandArgument.ToString());
+                string IdTomo = GVTomos.DataKeys[index].Values["IdTomo"].ToString();
+                Response.Redirect("EdicionTomos.aspx?Id=" + IdTomo);
+            }
         }
     }
 }

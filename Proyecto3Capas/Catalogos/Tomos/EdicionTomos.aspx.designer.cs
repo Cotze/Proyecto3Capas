@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Proyecto3Capas.Catalogos.Vendedores
+namespace Proyecto3Capas.Catalogos.Tomos
 {
 
 
-    public partial class EdicionVendedor
+    public partial class EdicionTomos
     {
     }
 }

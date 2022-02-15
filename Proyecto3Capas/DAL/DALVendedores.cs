@@ -91,17 +91,17 @@ namespace Proyecto3Capas.DAL
         {
             try
             {
-                DataSet dsChofer = DBConnection.ExecuteDataSet("Vendedor_GetByID", "@id", paramIdVendedor);
-                if (dsChofer.Tables[0].Rows.Count > 0)
+                DataSet dsVendedor = DBConnection.ExecuteDataSet("Vendedor_GetByID", "@id", paramIdVendedor);
+                if (dsVendedor.Tables[0].Rows.Count > 0)
                 {
-                    DataRow dr = dsChofer.Tables[0].Rows[0];
-                    VendedorVO Chofer = new VendedorVO(dr);
-                    return Chofer;
+                    DataRow dr = dsVendedor.Tables[0].Rows[0];
+                    VendedorVO Vendedor = new VendedorVO(dr);
+                    return Vendedor;
                 }
                 else
                 {
-                    VendedorVO chofer = new VendedorVO();
-                    return chofer;
+                    VendedorVO Vendedor = new VendedorVO();
+                    return Vendedor;
                 }
             }
             catch (Exception ex)
