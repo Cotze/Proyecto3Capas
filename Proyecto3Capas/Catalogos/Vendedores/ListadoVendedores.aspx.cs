@@ -93,7 +93,7 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                 string ApPaterno = e.NewValues["ApPaterno"].ToString();
                 string ApMaterno = e.NewValues["ApMaterno"].ToString();
                 string Empleado = TipoEmpleadoAux.SelectedValue;
-                BLLVendedores.UpdVendedor(int.Parse(IdVendedor), Nombre, ApPaterno, ApMaterno, Empleado, null);
+                BLLVendedores.UpdVendedor(int.Parse(IdVendedor), Nombre, ApPaterno, ApMaterno, Empleado, null, null);
 
                 GVVendedores.EditIndex = -1;
                 RefrescarGrid();

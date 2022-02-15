@@ -17,11 +17,11 @@ namespace Proyecto3Capas.BLL
         }
 
         //Insertar
-        public static void InsVendedores(string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto)
+        public static void InsVendedores(string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto, string paramPais)
         {
             try
             {
-                DALVendedores.InsVendedor(paramNombre, paramApPaterno, paramApMaterno, paramPuesto, paramUrlFoto);
+                DALVendedores.InsVendedor(paramNombre, paramApPaterno, paramApMaterno, paramPuesto, paramUrlFoto, paramPais);
             }
             catch (Exception ex)
             {
@@ -30,9 +30,9 @@ namespace Proyecto3Capas.BLL
         }
 
         //Actualizar
-        public static void UpdVendedor(int paramIdVendedor, string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto)
+        public static void UpdVendedor(int paramIdVendedor, string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto, string paramPais)
         {
-            DALVendedores.UpdVendedor(paramIdVendedor, paramNombre, paramApPaterno, paramApMaterno, paramPuesto, paramUrlFoto);
+            DALVendedores.UpdVendedor(paramIdVendedor, paramNombre, paramApPaterno, paramApMaterno, paramPuesto, paramUrlFoto, paramPais);
         }
 
         //Eliminar

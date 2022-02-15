@@ -31,6 +31,7 @@ namespace Proyecto3Capas.Catalogos.Vendedores
                         txtApPaterno.Text = vendedor.ApPaterno;
                         txtApMaterno.Text = vendedor.ApMaterno;
                         txtPuesto.Text = vendedor.Puesto;
+                        txtPais.Text = vendedor.Pais;
                     }
                     else
                     {
@@ -88,7 +89,8 @@ namespace Proyecto3Capas.Catalogos.Vendedores
             {
                 int id = int.Parse(Request.QueryString["Id"]);
                 string urlfoto = urlFoto.InnerText;
-                BLLVendedores.UpdVendedor(id, null, null, null, null, urlfoto);
+                string pais = txtPais.Text;
+                BLLVendedores.UpdVendedor(id, null, null, null, null, urlfoto, pais);
                 UtilControls.SweetBoxConfirm("Exito!", "Actualizada foto del empleado", "success", "ListadoVendedores.aspx", this.Page, this.GetType());
             }
             catch (Exception ex)

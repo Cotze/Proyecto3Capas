@@ -62,10 +62,10 @@
                         <li class="dropdown"><a href="#" class="drpdwn-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empleados</a>
                              <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/Catalogos/Vendedores/ListadoVendedores.aspx">Lista Venderdores</a>
+                                    <a href="/Catalogos/Vendedores/ListadoVendedores.aspx">Lista Empleados</a>
                                 </li>
                                 <li>
-                                    <a href="/Catalogos/Vendedores/AltaVendedores.aspx">Alta Vendedores</a>
+                                    <a href="/Catalogos/Vendedores/AltaVendedores.aspx">Alta Empleados</a>
                                 </li>
 
                              </ul>

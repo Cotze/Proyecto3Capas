@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1" style="scroll-margin-left: 40px;">
                 <h3>LISTADO DE VENDEDORES</h3>
-                
+
                 <asp:GridView ID="GVVendedores" CssClass="table tabble-table-bordered table-stripoed table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVVendedores_RowDeleting" DataKeyNames="IdVendedor" OnRowEditing="GVVendedores_RowEditing" OnRowUpdating="GVVendedores_RowUpdating" OnRowCancelingEdit="GVVendedores_RowCancelingEdit" OnRowCommand="GVVendedores_RowCommand">
 
                     <Columns>
@@ -19,7 +19,7 @@
                         <asp:BoundField HeaderText="ApPaterno" ItemStyle-Width="150px" DataField="ApPaterno" />
                         <asp:BoundField HeaderText="ApMaterno" ItemStyle-Width="150px" DataField="ApMaterno" />
                         <asp:TemplateField HeaderText="Tipo empleado">
-                            <ControlStyle Width="150px"/>
+                            <ControlStyle Width="150px" />
                             <ItemTemplate>
                                 <asp:Label ID="lblTipoEmpleado" Text='<%#Eval("Puesto") %>' runat="server"></asp:Label>
                             </ItemTemplate>
@@ -27,7 +27,7 @@
                                 <asp:DropDownList ID="DDLTipoEmpleado" CssClass="form-control" runat="server"></asp:DropDownList>
                             </EditItemTemplate>
                         </asp:TemplateField>
-
+                        <asp:BoundField HeaderText="Pais del vendedor" ItemStyle-Width="150px" DataField="Pais" ReadOnly="true"/>
                     </Columns>
                 </asp:GridView>
             </div>

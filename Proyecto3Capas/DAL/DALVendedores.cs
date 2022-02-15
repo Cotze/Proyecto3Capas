@@ -47,11 +47,11 @@ namespace Proyecto3Capas.DAL
         }
 
         //insertar
-        public static void InsVendedor(string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto)
+        public static void InsVendedor(string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto, string paramPais)
         {
             try
             {
-                DBConnection.ExecuteNonQuery("Vendedor_Insertar", "@Nombre", paramNombre, "@ApPaterno", paramApPaterno, "@ApMaterno",paramApMaterno, "@Puesto", paramPuesto, "@UrlFoto", paramUrlFoto);
+                DBConnection.ExecuteNonQuery("Vendedor_Insertar", "@Nombre", paramNombre, "@ApPaterno", paramApPaterno, "@ApMaterno",paramApMaterno, "@Puesto", paramPuesto, "@UrlFoto", paramUrlFoto, "@Pais", paramPais);
 
             }
             catch (Exception ex)
@@ -61,11 +61,11 @@ namespace Proyecto3Capas.DAL
         }
 
         //Actualizar
-        public static void UpdVendedor(int paramIdVendedor, string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto)
+        public static void UpdVendedor(int paramIdVendedor, string paramNombre, string paramApPaterno, string paramApMaterno, string paramPuesto, string paramUrlFoto, string paramPais)
         {
             try
             {
-                DBConnection.ExecuteNonQuery("Vendedor_Actualizar", "@id", paramIdVendedor, "@Nombre", paramNombre, "@ApPaterno", paramApPaterno, "@ApMaterno", paramApMaterno, "@Puesto", paramPuesto, "@UrlFoto", paramUrlFoto);
+                DBConnection.ExecuteNonQuery("Vendedor_Actualizar", "@id", paramIdVendedor, "@Nombre", paramNombre, "@ApPaterno", paramApPaterno, "@ApMaterno", paramApMaterno, "@Puesto", paramPuesto, "@UrlFoto", paramUrlFoto, "@Pais", paramPais);
             }
             catch (Exception ex)
             {

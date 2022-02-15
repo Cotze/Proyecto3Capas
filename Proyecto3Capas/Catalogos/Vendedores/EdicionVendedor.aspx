@@ -36,6 +36,13 @@
                     </div>
                 </div>
                 <div class="col-md-12">
+                <div class="form-btn-group">
+                    <label for="<%=txtPais.ClientID %>">Pais del vendedor</label>
+                    <asp:TextBox ID="txtPais" placeholder="Pais del vendedor" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtPais" CssClass="text-danger" runat="server" ErrorMessage="Pais del vendedor es requerido"></asp:RequiredFieldValidator>
+                </div>
+            </div>
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="<%=SubeImagen.ClientID%>">Seleccionar</label>
                         <div class="row">

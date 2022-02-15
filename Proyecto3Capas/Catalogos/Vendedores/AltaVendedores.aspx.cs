@@ -74,18 +74,52 @@ namespace Proyecto3Capas.Catalogos.Vendedores
             {
                 string nombre = txtNombre.Text;
                 string apPaterno = txtApPaterno.Text;
-                string apMaterno = txtApMaterno.Text;;
+                string apMaterno = txtApMaterno.Text; ;
                 string TipoCamion = DDLTipoPuesto.SelectedValue;
                 string urlfoto = urlFoto.InnerText;
+                string Pais = txtPais.Text;
 
 
-                BLLVendedores.InsVendedores(nombre, apPaterno, apMaterno, TipoCamion, urlfoto);
+                BLLVendedores.InsVendedores(nombre, apPaterno, apMaterno, TipoCamion, urlfoto, Pais);
                 UtilControls.SweetBoxConfirm("Exito!", "Vendedor agregado exitosamente", "success", "ListadoVendedores.aspx", this.Page, this.GetType());
             }
             catch (Exception ex)
             {
                 UtilControls.SweetBox("Error!", ex.ToString(), "error", this.Page, this.GetType());
             }
+        }
+
+        protected void btnGuardarDir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                string Estado = txtEstado.Text;
+
+                //aca consumimos el web service
+                //WSRutas.InsDirecciones();
+                ServicioWeb.WSRutasSoapClient referencia = new ServicioWeb.WSRutasSoapClient();
+                int idDireccion = referencia.insDireccion(Calle, Numero, Colonia, Ciudad, Estado, CP);
+
+                if (txtEsOD.Text == "1")
+                {
+                    //Estado origen
+                    Session["IdOrigen"]= idDireccion.ToString();
+                    MPOrigen.Hide();
+                }
+                LimpiarDireccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void LimpiarDireccion()
+        {
+            txtEstado.Text = String.Empty;
         }
     }
 }
