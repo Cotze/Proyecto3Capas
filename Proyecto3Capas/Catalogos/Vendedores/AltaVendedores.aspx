@@ -108,8 +108,7 @@
         }
         //guardar del lado del servidor si el usuario
         //dio click en origen o en destino
-        $("#<%=txtEsOD.ClientID%>").val(fuente);
-
+        
         if (direccion != "") {
             //Llamamos a la api de google maps
             //para obtener los datos completos de la dirección

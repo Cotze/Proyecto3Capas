@@ -14,7 +14,10 @@
                         <asp:CommandField ShowEditButton="true" ButtonType="Button" ControlStyle-CssClass="btn btn-primary btn-xs" />
 
                         <asp:BoundField HeaderText="idTomo" ItemStyle-Width="50px" ReadOnly="true" DataField="idTomo" />
+
                         <asp:BoundField HeaderText="Titulo" ItemStyle-Width="150px" DataField="Titulo" />
+                        
+
                         <asp:BoundField HeaderText="Precio" ItemStyle-Width="150px" DataField="Precio" readonly="true"/>
                         <asp:BoundField HeaderText="Stock" ItemStyle-Width="150px" DataField="Stock" readonly="true"/>
                         <asp:TemplateField HeaderText="Tipo manga">

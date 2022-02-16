@@ -21,26 +21,26 @@ namespace Proyecto3Capas
     {
 
         [WebMethod]
-        public string[] GetDirecciones(string prefixText)
+        public string[] GetTitulos(string prefixText)
         {
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("buscaDireccion", conn);
+            SqlCommand cmd = new SqlCommand("buscaTitulo", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Prefijo", prefixText);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataSet dsDirecciones = new DataSet();
-            adapter.Fill(dsDirecciones);
-            string[] direcciones = new string[dsDirecciones.Tables[0].Rows.Count];
+            DataSet dsTitulos = new DataSet();
+            adapter.Fill(dsTitulos);
+            string[] titulos = new string[dsTitulos.Tables[0].Rows.Count];
 
             int registro = 0;
             //recoremos el dataset para obtener la direccion
-            foreach (DataRow dr in dsDirecciones.Tables[0].Rows)
+            foreach (DataRow dr in dsTitulos.Tables[0].Rows)
             {
-                direcciones.SetValue(dr["direccioncompleta"].ToString(), registro);
+                titulos.SetValue(dr["tituloCompleto"].ToString(), registro);
                 registro++;
             }
-            return direcciones;
+            return titulos;
         }
     }
 }

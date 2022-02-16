@@ -15,8 +15,10 @@
             <div class="col-md-12">
                 <div class="form-btn-group">
                     <label for="<%=txtTitulo.ClientID %>">Titulo del Tomo</label>
-                    <asp:TextBox ID="txtTitulo" placeholder="Titulo del Tomo" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>
+                    <asp:TextBox ID="txtTitulo" placeholder="Titulo del Tomo" CssClass="form-control" runat="server" MaxLength="150"></asp:TextBox>                    
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtTitulo" CssClass="text-danger" runat="server" ErrorMessage="Titulo de tomo requerido"></asp:RequiredFieldValidator>
+
+                    
                 </div>
             </div>
             <div class="col-md-12">

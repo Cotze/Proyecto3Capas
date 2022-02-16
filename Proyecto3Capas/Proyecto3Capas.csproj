@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Proyecto3Capas</RootNamespace>
     <AssemblyName>Proyecto3Capas</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44369</IISExpressSSLPort>
@@ -54,6 +54,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
@@ -113,12 +115,23 @@
     <Content Include="Catalogos\Clientes\AltaCliente.aspx" />
     <Content Include="Catalogos\Clientes\EdicionCliente.aspx" />
     <Content Include="Catalogos\Clientes\ListadoCliente.aspx" />
+    <Content Include="Catalogos\Envios\AltaEnvios.aspx" />
     <Content Include="Catalogos\Tomos\AltaTomos.aspx" />
     <Content Include="Catalogos\Tomos\EdicionTomos.aspx" />
     <Content Include="Catalogos\Tomos\ListadoTomos.aspx" />
     <Content Include="Catalogos\Vendedores\AltaVendedores.aspx" />
     <Content Include="Catalogos\Vendedores\EdicionVendedor.aspx" />
     <Content Include="Catalogos\Vendedores\ListadoVendedores.aspx" />
+    <Content Include="Connected Services\InsertarCliente\Proyecto3Capas.InsertarCliente.InsClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\InsertarCliente\ServicioWebProyecto.disco" />
+    <None Include="Connected Services\InsertarCliente\configuration91.svcinfo" />
+    <None Include="Connected Services\InsertarCliente\configuration.svcinfo" />
+    <None Include="Connected Services\InsertarCliente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -139,6 +152,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Connected Services\InsertarCliente\ServicioWebProyecto.wsdl" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -192,6 +206,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BLL\BLLCliente.cs" />
+    <Compile Include="BLL\BLLEnvios.cs" />
     <Compile Include="BLL\BLLTomos.cs" />
     <Compile Include="BLL\BLLVendedores.cs" />
     <Compile Include="Catalogos\Clientes\AltaCliente.aspx.cs">
@@ -214,6 +229,13 @@
     </Compile>
     <Compile Include="Catalogos\Clientes\ListadoCliente.aspx.designer.cs">
       <DependentUpon>ListadoCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Envios\AltaEnvios.aspx.cs">
+      <DependentUpon>AltaEnvios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Envios\AltaEnvios.aspx.designer.cs">
+      <DependentUpon>AltaEnvios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Tomos\AltaTomos.aspx.cs">
       <DependentUpon>AltaTomos.aspx</DependentUpon>
@@ -257,6 +279,11 @@
     <Compile Include="Catalogos\Vendedores\ListadoVendedores.aspx.designer.cs">
       <DependentUpon>ListadoVendedores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\InsertarCliente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -265,6 +292,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DALClientes.cs" />
+    <Compile Include="DAL\DALEnvios.cs" />
     <Compile Include="DAL\DALTomos.cs" />
     <Compile Include="DAL\DALVendedores.cs" />
     <Compile Include="Default.aspx.cs">
@@ -303,6 +331,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
     <Compile Include="VO\ClienteVO.cs" />
+    <Compile Include="VO\EnviosVO.cs" />
     <Compile Include="VO\TomosVO.cs" />
     <Compile Include="VO\VendedorVO.cs" />
   </ItemGroup>
@@ -319,6 +348,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\InsertarCliente\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
